@@ -4,3 +4,14 @@ spring:
       uri: ${MONGO_DB_URI}
       username: ${MONGO_DB_USERNAME}
       password: ${MONGO_DB_PASSWORD}
+  cloud:
+    function:
+      definition: busPositionProducer
+    stream:
+      bindings:
+        busPositionProducer-out-0:
+          destination: bus-positions
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: ${KAFKA_ADVERTISED_LISTENERS}
