@@ -15,3 +15,8 @@ spring:
       kafka:
         binder:
           brokers: ${KAFKA_ADVERTISED_LISTENERS}
+  task:
+    scheduling:
+      pool:
+        size:
+          10
